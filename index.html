@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conecta Screen</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0D0D0D;
+  color: white;
+  overflow: hidden;
+}
+
+.screen {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+}
+
+.active {
+  display: flex;
+  animation: fade 1s ease;
+}
+
+@keyframes fade {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.5em;
+  color: #ccc;
+}
+
+.qr {
+  width: 250px;
+  margin-top: 20px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.08);}
+  100% {transform: scale(1);}
+}
+
+.logo {
+  position: absolute;
+  bottom: 20px;
+  font-size: 1em;
+  color: #666;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Pantalla 1 -->
+<div class="screen active">
+  <h1>Bienvenido a bordo</h1>
+  <p>Gracias por viajar conmigo</p>
+  <div class="logo">CONECTA</div>
+</div>
+
+<!-- Pantalla 2 -->
+<div class="screen">
+  <h1>Seguridad</h1>
+  <p>Por favor utiliza el cinturón de seguridad</p>
+</div>
+
+<!-- Pantalla 3 -->
+<div class="screen">
+  <h1>Reglas</h1>
+  <p>No alimentos<br>No bebidas<br>Gracias por tu comprensión</p>
+</div>
+
+<!-- Pantalla 4 QR SUAVE -->
+<div class="screen">
+  <h1>Agenda tu viaje</h1>
+  <p>Servicio directo y personalizado</p>
+  <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://conectaviajes70-arch.github.io/Conecta-Reservas-/" />
+</div>
+
+<!-- Pantalla 5 -->
+<div class="screen">
+  <h1>Beneficios</h1>
+  <p>🚗 Mismo conductor<br>⏱️ Puntualidad<br>💎 Mejor experiencia</p>
+</div>
+
+<!-- Pantalla 6 -->
+<div class="screen">
+  <h1>CONECTA</h1>
+  <p>viajaYa</p>
+</div>
+
+<!-- Pantalla 7 QR FUERTE -->
+<div class="screen">
+  <h1>¿Te gustó el servicio?</h1>
+  <p>Escanea y agenda tu próximo viaje</p>
+  <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://tulink.com" />
+</div>
+
+<script>
+let index = 0;
+const screens = document.querySelectorAll(".screen");
+
+function showNextScreen() {
+  screens[index].classList.remove("active");
+  index = (index + 1) % screens.length;
+  screens[index].classList.add("active");
+}
+
+setInterval(showNextScreen, 6000); // cambia cada 6 segundos
+</script>
+
+</body>
+</html>
