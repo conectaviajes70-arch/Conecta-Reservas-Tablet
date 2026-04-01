@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
+<meta charset="UTF-8"> 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <meta name="theme-color" content="#0D0D0D">
+<meta name="theme-color" content="#0D0D0D">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">  
-<meta charset="UTF-8"> 
 <title>Conecta Screen</title>
 
 <style>
@@ -49,9 +49,12 @@ p {
 }
 
 .qr {
-  width: 250px;
+  width: 280px;
   margin-top: 20px;
   animation: pulse 2s infinite;
+  background: white;
+  padding: 15px;
+  border-radius: 20px;
 }
 
 @keyframes pulse {
@@ -102,11 +105,11 @@ p {
   <p>No alimentos<br>No bebidas<br>Gracias por tu comprensión</p>
 </div>
 
-<!-- Pantalla 4 QR SUAVE -->
+<!-- Pantalla 4 QR -->
 <div class="screen">
   <h1>Agenda tu viaje</h1>
   <p>Servicio directo y personalizado</p>
-  <img class="qr" src="rI12M4 (1).png" />
+  <img class="qr" src="qr.png" />
 </div>
 
 <!-- Pantalla 5 -->
@@ -119,17 +122,16 @@ p {
 <div class="screen">
   <h1>CONECTA</h1>
   <p>viajaYa</p>
- <button class="btn-spotify" onclick="openSpotify()">
-🎵 Elegir música
-</button>
- 
+  <button class="btn-spotify" onclick="openSpotify()">
+    🎵 Elegir música
+  </button>
 </div>
 
-<!-- Pantalla 7 QR FUERTE -->
+<!-- Pantalla 7 QR FINAL -->
 <div class="screen">
   <h1>¿Te gustó el servicio?</h1>
   <p>Escanea y agenda tu próximo viaje</p>
-  <img class="qr" src="rI12M4 (1).png" />
+  <img class="qr" src="qr.png" />
 </div>
 
 <script>
@@ -142,13 +144,13 @@ function showNextScreen() {
   screens[index].classList.add("active");
 }
 
-<script>
+// Función Spotify
 function openSpotify() {
   window.location.href = "spotify://";
 }
-</script> 
 
-setInterval(showNextScreen, 6000); // cambia cada 6 segundos
+// Cambio automático
+setInterval(showNextScreen, 6000);
 </script>
 
 </body>
