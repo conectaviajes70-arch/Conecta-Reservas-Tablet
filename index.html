@@ -67,9 +67,17 @@ p {
   color: #666;
 }
 
-<button class="btn-spotify" onclick="openSpotify()">
-🎵 Elegir música
-</button> 
+.btn-spotify {
+  margin-top: 20px;
+  padding: 15px 25px;
+  font-size: 1.2em;
+  background: #1DB954;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(29,185,84,0.5);
+}
 </style>
 </head>
 
@@ -114,6 +122,7 @@ p {
  <button class="btn-spotify" onclick="openSpotify()">
 🎵 Elegir música
 </button>
+ 
 </div>
 
 <!-- Pantalla 7 QR FUERTE -->
@@ -132,6 +141,12 @@ function showNextScreen() {
   index = (index + 1) % screens.length;
   screens[index].classList.add("active");
 }
+
+<script>
+function openSpotify() {
+  window.location.href = "spotify://";
+}
+</script> 
 
 setInterval(showNextScreen, 6000); // cambia cada 6 segundos
 </script>
